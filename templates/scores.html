@@ -1,0 +1,25 @@
+<h1>Assignment Scores</h1>
+
+<p>Student ID: {{ student['id'] }}</p>
+<p>Name: {{ student['name'] }}</p>
+
+<form action="/change_name">
+  <input type="text" name="name"></input>
+  <input type="hidden" name="student_id" value="{{student['id']}}"></input>
+  <input type="submit" value="Update"></input>
+</form>
+
+<table>
+  <tr>
+    <th>Assignment</th>
+    <th>Score</th>
+    <th>Possible points</th>
+  </tr>
+  {% for score in scores %}
+    <tr>
+      <td>{{ score['name'] }}</td>
+      <td>{{ score['score'] }}</td>
+      <td>{{ score['points'] }}</td>
+    </tr>
+  {% endfor %}
+</table>
